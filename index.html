@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hỗ Trợ Vay Tín Chấp</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #02a046;
+    --primary-dark: #017a33;
+    --primary-light: #e6f5ec;
+    --gold: #e8a020;
+    --gold-light: #fef3e2;
+    --dark: #1a1a2e;
+    --text: #333;
+    --text-light: #666;
+    --border: #e5e5e5;
+    --bg: #f7f8fc;
+    --white: #fff;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 32px rgba(2,160,70,0.15);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* ═══════════════ TOP BAR ═══════════════ */
+  .topbar {
+    background: var(--dark);
+    color: #aaa;
+    font-size: 12px;
+    padding: 6px 0;
+  }
+  .topbar .inner {
+    max-width: 1160px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .topbar a { color: #ccc; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar .hotline { color: var(--gold); font-weight: 700; font-size: 13px; }
+
+  /* ═══════════════ HEADER ═══════════════ */
+  header {
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .header-inner {
+    max-width: 1160px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+  .logo-text { line-height: 1.2; }
+  .logo-text .name { font-size: 16px; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; }
+  .logo-text .tagline { font-size: 11px; color: var(--text-light); }
+
+  nav { display: flex; gap: 2px; }
+  nav a {
+    padding: 8px 14px; font-size: 13.5px; font-weight: 600; color: var(--dark);
+    border-radius: 8px; transition: all 0.2s; white-space: nowrap;
+  }
+  nav a:hover, nav a.active { background: var(--primary); color: var(--white); }
+
+  .header-cta {
+    background: var(--primary); color: var(--white) !important;
+    padding: 10px 20px !important; border-radius: 8px !important;
+    font-weight: 700 !important;
+  }
+  .header-cta:hover { background: var(--primary-dark) !important; }
+
+  /* ═══════════════ HERO ═══════════════ */
+  .hero {
+    background: linear-gradient(160deg, #017a33 0%, #02a046 55%, #03c45a 100%);
+    color: var(--white);
+    padding: 15px 10px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-inner {
+    max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
+    position: relative;
+  }
+  .hero h1 { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 28px; line-height: 1.7; }
+  .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+  .badge {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+  .hero-btns { display: flex; gap: 12px; }
+  .btn-primary {
+    background: var(--primary); color: var(--white);
+    padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px;
+    transition: all 0.2s; border: none; cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.3); transition: all 0.2s; cursor: pointer;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  /* Hero stats */
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .stat-card {
+    background: rgba(255,255,255,0.95); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: var(--radius); padding: 20px;
+    text-align: center; backdrop-filter: blur(8px);
+  }
+  .stat-card .num { font-size: 28px; font-weight: 800; color: var(--gold); }
+  .stat-card .label { font-size: 12px; color: #333; margin-top: 4px; }
+
+  /* ═══════════════ SECTION COMMONS ═══════════════ */
+  section { padding: 64px 20px; }
+  .container { max-width: 1160px; margin: 0 auto; }
+  .section-title {
+    text-align: center; margin-bottom: 40px;
+  }
+  .section-title h2 { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+  .section-title h2 span { color: var(--primary); }
+  .section-title p { color: var(--text-light); font-size: 15px; }
+  .title-line {
+    width: 60px; height: 4px; background: var(--primary);
+    border-radius: 2px; margin: 12px auto 0;
+  }
+
+  /* ═══════════════ PRODUCTS ═══════════════ */
+  .products { background: var(--white); }
+  .products .section-title { margin-bottom: 20px; }
+  .products .title-line { display: none; }
+  .tab-nav { display: flex; gap: 8px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 14px;
+    border: 2px solid var(--border); color: var(--text-light); cursor: pointer;
+    transition: all 0.2s; background: var(--white);
+  }
+  .tab-btn.active { border-color: var(--primary); background: var(--primary); color: var(--white); }
+  .tab-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .product-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border); overflow: hidden;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .product-card:hover {
+    border-color: var(--primary); transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  .product-card .card-img { position: relative; overflow: hidden; margin-top: -3px; }
+  .product-card .card-img img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; transition: transform 0.3s; }
+  .product-card:hover .card-img img { transform: scale(1.04); }
+  .product-card .card-body { padding: 14px 18px 18px; }
+  .product-card h3 { font-size: 19px; font-weight: 700; color: var(--primary); margin-bottom: 10px; padding-top: 0; }
+  .loan-info { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .loan-info-item { background: var(--bg); border-radius: 8px; padding: 10px 12px; }
+  .loan-info-item:last-child { text-align: right; }
+  .loan-info-item .lbl { font-size: 15.5px; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .loan-info-item .val { font-size: 22.5px; font-weight: 800; color: var(--primary); line-height: 1.2; }
+  .loan-info-item .unit { font-size: 16.5px; color: var(--text-light); }
+  .product-features { list-style: none; }
+  .product-features li {
+    font-size: 17.5px; color: var(--text-light); padding: 4px 0;
+    display: flex; align-items: center; gap: 6px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .product-features li:last-child { border-bottom: none; }
+  .product-features li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+  .card-footer {
+    padding: 8px 18px 8px; border-top: none;
+    background: var(--bg);
+  }
+  .btn-detail {
+    display: inline-block; text-align: center; background: var(--primary); color: var(--white);
+    padding: 0 14px; line-height: 34px; height: 34px; border-radius: 8px; font-weight: 600; font-size: 13px;
+    transition: background 0.2s;
+  }
+  .card-footer { display: flex; justify-content: flex-end; }
+  .btn-detail:hover { background: var(--primary-dark); }
+
+  /* ═══════════════ PROCESS ═══════════════ */
+  .process { background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%); color: var(--white); padding-top: 10px; }
+  .process .section-title h2 { font-size: 30px; }
+  .process .section-title p { font-size: 17px; }
+  .process .section-title h2 { color: var(--white); }
+  .process .section-title p { color: rgba(255,255,255,0.6); }
+  .process .title-line { background: var(--gold); }
+  .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative; }
+  .steps::before {
+    content: '';
+    position: absolute; top: 52px; left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+    height: 2px; background: rgba(255,255,255,0.15);
+  }
+  .step { text-align: center; position: relative; }
+  .step-icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15);
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; position: relative;
+    transition: all 0.3s;
+  }
+  .step:hover .step-icon { background: var(--primary); border-color: var(--primary); transform: scale(1.05); }
+  .step-num {
+    position: absolute; top: -6px; right: -6px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--gold); color: var(--dark);
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  /* ═══════════════ NEWS ═══════════════ */
+  .news { background: var(--bg); }
+  .news.section-wrap { padding-top: 0; }
+  .news .section-title { margin-bottom: 20px; }
+  .news .title-line { display: none; }
+  .news-groups { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+  .news-group h3 {
+    font-size: 17px; font-weight: 800; color: var(--dark);
+    padding-bottom: 12px; border-bottom: 3px solid var(--primary);
+    margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .news-group h3 a { font-size: 12px; font-weight: 600; color: var(--primary); margin-left: auto; }
+  .news-list { display: flex; flex-direction: column; gap: 14px; }
+  .news-item { display: flex; gap: 14px; align-items: flex-start; }
+  .news-item img { width: 90px; height: 65px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+  .news-item-text h4 { font-size: 15px; font-weight: 600; color: var(--dark); line-height: 1.4; margin-bottom: 4px; }
+  .news-item-text h4:hover { color: var(--primary); }
+  .news-item-text span { display: none; }
+
+  /* ═══════════════ CALCULATOR ═══════════════ */
+  .calculator { background: var(--white); }
+  .calculator .section-title { margin-bottom: 20px; }
+  .calculator .title-line { display: none; }
+  .calculator .section-title p { padding-bottom: 3px; margin-bottom: 0; }
+  .calc-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+  }
+  .calc-left { }
+  .calc-info { background: var(--primary-light); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; }
+  .calc-info p { font-size: 17.5px; color: var(--text-light); line-height: 1.7; }
+  .calc-info strong { color: var(--primary); }
+  .calc-box {
+    background: var(--white); border-radius: var(--radius);
+    border: 1.5px solid var(--border); padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .calc-box h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 6px; text-align: center; text-transform: uppercase; }
+  .calc-box .subtitle { font-size: 15px; color: var(--text-light); margin-bottom: 24px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .form-group .range-val { float: right; color: var(--primary); font-weight: 700; }
+  input[type=range] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 9px;
+    border-radius: 5px;
+    background: #d1d5db;
+    outline: none;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 9px; border-radius: 5px;
+    background: linear-gradient(to right, var(--primary) 0%, var(--primary) var(--val, 50%), #d1d5db var(--val, 50%));
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 27px; height: 27px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(2,160,70,0.4);
+    cursor: pointer;
+    margin-top: -9px;
+  }
+  input[type=range]::-moz-range-track {
+    height: 9px; border-radius: 5px; background: #d1d5db;
+  }
+  input[type=range]::-moz-range-progress {
+    height: 9px; border-radius: 5px; background: var(--primary);
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 27px; height: 27px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(2,160,70,0.4);
+    cursor: pointer;
+  }
+  select, input[type=text], input[type=tel], input[type=number] {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+    border-radius: 10px; font-size: 17.5px; font-family: inherit;
+    color: var(--dark); background: var(--white); transition: border-color 0.2s;
+    appearance: none;
+  }
+  select:focus, input:focus { outline: none; border-color: var(--primary); }
+
+  .calc-result {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 0; padding: 14px 8px; color: var(--white);
+    margin-top: 20px; margin-left: -14px; margin-right: -14px;
+  }
+  .calc-result h4 { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .result-item { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 12px; }
+  .result-item .r-lbl { font-size: 13px; opacity: 0.75; margin-bottom: 4px; }
+  .result-item .r-val { font-size: 20px; font-weight: 800; }
+  .result-total {
+    background: rgba(255,255,255,0.15); border-radius: 8px; padding: 14px;
+    text-align: center;
+  }
+  .result-total .t-lbl { font-size: 14px; opacity: 0.8; margin-bottom: 4px; }
+  .result-total .t-val { font-size: 28px; font-weight: 800; color: var(--gold); }
+  .schedule-btn {
+    width: 100%; margin-top: 14px; background: rgba(255,255,255,0.15);
+    color: var(--white); border: 1.5px solid rgba(255,255,255,0.3);
+    padding: 12px; border-radius: 10px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s; font-family: inherit;
+  }
+  .schedule-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* Schedule table */
+  .schedule-table { display: none; }
+  .schedule-table.show { display: block; margin-left: -14px; margin-right: -14px; }
+  .schedule-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 0; }
+  .schedule-table table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; min-width: 0; table-layout: fixed; }
+  .schedule-table col.c-thang { width: 12%; }
+  .schedule-table col.c-goc { width: 21%; }
+  .schedule-table col.c-lai { width: 20%; }
+  .schedule-table col.c-tong { width: 22%; }
+  .schedule-table col.c-dunoc { width: 25%; }
+  .schedule-table th { background: var(--dark); color: var(--white); padding: 5px 3px; text-align: right; font-weight: 600; font-size: 11px; white-space: normal; word-break: break-word; }
+  .schedule-table th:first-child { text-align: center; }
+  .schedule-table td { padding: 5px 3px; text-align: right; border-bottom: 1px solid var(--border); font-size: 11px; white-space: nowrap; }
+  .schedule-table td:first-child { text-align: center; font-weight: 600; color: var(--primary); }
+  .schedule-table tr:hover td { background: var(--primary-light); }
+  @media (min-width: 600px) {
+    .schedule-table table { font-size: 13px; }
+    .schedule-table th { padding: 10px 12px; font-size: 12px; }
+    .schedule-table td { padding: 9px 12px; font-size: 13px; }
+  }
+
+  /* ═══════════════ REGISTER ═══════════════ */
+  .register { background: linear-gradient(135deg, #f7f8fc, #eef0f7); }
+  .register-wrapper {
+    display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: start;
+  }
+  .register-left h2 { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
+  .register-left h2 span { color: var(--primary); }
+  .register-left p { color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .feature-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--white); padding: 14px 14px; border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .feature-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--primary-light); color: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .feature-list li .text h4 { font-size: 16px; font-weight: 700; color: var(--dark); }
+  .feature-list li .text p { font-size: 16px; color: var(--text-light); margin-bottom: 0; }
+
+  .register-form {
+    background: var(--white); border-radius: 16px; padding: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--primary);
+  }
+  .register-form h3 { font-size: 22px; font-weight: 800; color: #02a046; margin-bottom: 4px; text-align: center; }
+  .register-form .form-sub { font-size: 15px; color: var(--text-light); margin-bottom: 24px; text-align: center;}
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .submit-btn {
+    width: auto; padding: 12px 20px; background: var(--primary); color: var(--white);
+    border: none; border-radius: 10px; font-size: 18px; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: all 0.2s; margin-top: 6px;
+    display: block; margin-left: auto; margin-right: auto;
+  }
+  .submit-btn:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  .form-note { font-size: 14px; color: var(--text-light); text-align: center; margin-top: 12px; }
+  .form-note a { color: var(--primary); }
+
+  /* Success message */
+  .success-msg {
+    display: none; text-align: center; padding: 20px;
+    background: #f0fdf4; border-radius: 10px; margin-top: 16px;
+    border: 1.5px solid #bbf7d0;
+  }
+  .success-msg .icon { font-size: 48px; margin-bottom: 12px; }
+  .success-msg h4 { font-size: 17px; font-weight: 700; color: #15803d; margin-bottom: 6px; }
+  .success-msg p { font-size: 13px; color: #166534; }
+
+  /* ═══════════════ FOOTER ═══════════════ */
+  footer { background: linear-gradient(160deg, #017a33 0%, #02a046 100%); color: rgba(255,255,255,0.85); padding: 0 20px; }
+  .footer-grid { max-width: 700px; margin: 0 auto; padding: 10px 0 0; }
+  .footer-brand { text-align: center; } .footer-brand .logo { margin-bottom: 16px; justify-content: center; }
+  .footer-brand .logo img { border-radius: 50%; width: 48px; height: 48px; }
+  .footer-brand .logo-text .name { color: var(--white); font-size: 15px; }
+  .footer-brand p { font-size: 13px; line-height: 1.8; margin-bottom: 16px; }
+  .footer-contact { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin: 6px 0; } .footer-contact p { font-size: 13px; display: flex; align-items: center; gap: 6px; margin-bottom: 0; }
+  .footer-contact a { color: var(--gold); font-weight: 600; }
+  footer h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  footer ul { list-style: none; }
+  footer ul li { padding: 5px 0; }
+  footer ul a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+  footer ul a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1160px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 10px 0; font-size: 13px;
+    display: flex; justify-content: space-between; align-items: center;
+    line-height: 1.5;
+  }
+
+  /* ═══════════════ FLOATING CTA ═══════════════ */
+  .floating-cta {
+    position: fixed; bottom: 24px; left: 24px; z-index: 999;
+    display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+  }
+  .fab {
+    width: 43px; height: 43px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    cursor: pointer; transition: transform 0.2s; text-decoration: none;
+    animation: pulse 2.5s infinite;
+  }
+  .fab:hover { transform: scale(1.1); }
+  .fab-call { background: #25d366; }
+  .fab-zalo { background: #0068ff; }
+  .fab-label {
+    background: var(--dark); color: var(--white); font-size: 12px; font-weight: 600;
+    padding: 5px 12px; border-radius: 50px; white-space: nowrap;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    position: absolute; left: 64px;
+  }
+  .fab-wrap { position: relative; display: flex; align-items: center; }
+  .fab-wrap:hover .fab-label { opacity: 1; }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+    50% { box-shadow: 0 4px 24px rgba(2,160,70,0.45); }
+  }
+
+  /* ══════════════════════════════════════════
+     MOBILE-FIRST RESPONSIVE SYSTEM
+     Base = mobile → expand up
+  ══════════════════════════════════════════ */
+
+  /* ── Mobile base overrides ── */
+  /* Topbar: hide address on mobile */
+  .topbar .inner { flex-direction: column; gap: 2px; text-align: center; }
+  .topbar .addr { display: none; }
+
+  /* Header mobile */
+  header { position: sticky; top: 0; z-index: 1000; }
+  .header-inner { height: 42px; padding: 0 14px; }
+  .logo img { width: 36px; height: 36px; }
+  .logo-text .name { font-size: 15px; }
+  .logo-text .tagline { display: none; }
+  nav { display: none; }
+
+  /* Hamburger button */
+  .ham-btn {
+    display: flex; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 8px; z-index: 1100;
+  }
+  .ham-btn span {
+    display: block; width: 22px; height: 2px;
+    background: var(--dark); border-radius: 2px; transition: all 0.3s;
+  }
+  .ham-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .ham-btn.open span:nth-child(2) { opacity: 0; }
+  .ham-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
+    background: var(--white); z-index: 1099; flex-direction: column;
+    padding: 20px 16px; gap: 4px; overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    padding: 14px 16px; font-size: 15px; font-weight: 600; color: var(--dark);
+    border-radius: 10px; border-bottom: 1px solid var(--border); display: block;
+  }
+  .mobile-nav a:hover, .mobile-nav a.active { background: var(--primary-light); color: var(--primary); }
+  .mobile-nav .m-cta {
+    margin-top: 12px; background: var(--primary); color: var(--white) !important;
+    text-align: center; border-radius: 10px; font-size: 16px; border-bottom: none;
+    padding: 16px;
+  }
+
+  /* Hero mobile */
+  .hero { padding: 10px 14px 20px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  .hero h1 { font-size: 26px; line-height: 1.25; margin-bottom: 12px; }
+  .hero p { font-size: 19px; color: #fff; margin-bottom: 20px; }
+  .hero-badges { gap: 8px; margin-bottom: 24px; }
+  .badge { padding: 6px 12px; font-size: 16px; }
+  .hero-btns { flex-direction: row; gap: 8px; }
+  .btn-primary, .btn-outline { padding: 9px 12px; font-size: 14px; text-align: center; border-radius: 10px; flex: 1; background: var(--gold) !important; color: var(--dark) !important; border: 2px solid #c88000 !important; font-weight: 700 !important; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .stat-card { padding: 12px 8px; }
+  .stat-card .num { font-size: 20px; }
+  .stat-card .label { font-size: 10px; }
+
+  /* Sections mobile padding */
+  section { padding: 40px 14px; }
+  .section-title h2 { font-size: 23.5px; }
+  .section-title p { font-size: 13px; }
+
+  /* Products mobile */
+  .products { padding-top: 16px; }
+  .products-grid { grid-template-columns: 1fr; gap: 16px; }
+  .tab-nav { gap: 6px; }
+  .tab-btn { padding: 9px 16px; font-size: 13px; }
+  .loan-info-item .val { font-size: 19px; }
+
+  /* Steps mobile */
+  .steps { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .steps::before { display: none; }
+  .step-icon { width: 64px; height: 64px; font-size: 26px; }
+
+  /* News mobile */
+  .news { padding-top: 16px; }
+  .news-groups { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Calculator mobile */
+  .calculator { padding-top: 16px; padding-bottom: 10px; }
+  .calc-wrapper { grid-template-columns: 1fr; gap: 20px; }
+  .calc-info { padding: 16px; }
+  .calc-box { padding: 16px; border: none; box-shadow: none; }
+  .result-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  /* Lưu ý quan trọng mobile */
+  #rateGroup { display: none; }
+  .luu-y-list li { font-size: 18px !important; }
+
+  /* Register mobile */
+  .register { padding-top: 0; }
+  .register-wrapper { grid-template-columns: 1fr; gap: 28px; }
+  .register-form { padding: 20px 14px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .register-left h2 { font-size: 22px; }
+  .feature-list { gap: 10px; }
+  .feature-icon { width: 36px; height: 36px; font-size: 16px; }
+
+  .register-left > p { text-align: center; }
+  .register-form .form-sub { text-align: center; }
+
+  /* Footer mobile */
+  .footer-grid { grid-template-columns: 1fr; gap: 0; padding: 0; }
+  footer { padding: 0px 14px; }
+  .footer-contact { flex-direction: column; gap: 4px; align-items: center; line-height: 1.8; }
+  .footer-contact p { font-size: 14px; }
+  .footer-bottom { flex-direction: column; gap: 1px; text-align: center; padding: 2px 0; font-size: 12px; }
+
+  /* Floating CTA mobile */
+  .floating-cta { bottom: 16px; left: 0; gap: 6px; align-items: flex-start; }
+  .fab { width: 40px; height: 40px; font-size: 16px; }
+
+  /* ── Tablet (≥600px) ── */
+  @media (min-width: 600px) {
+    .topbar .addr { display: inline; }
+    .topbar .inner { flex-direction: row; }
+    .products-grid { grid-template-columns: repeat(2,1fr); }
+    .hero h1 { font-size: 30px; }
+    section { padding: 52px 20px; }
+    .result-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── Desktop (≥960px) ── */
+  @media (min-width: 960px) {
+    .logo-text .tagline { display: block; }
+    .logo img { width: 52px; height: 52px; }
+    .logo-text .name { font-size: 16px; }
+    .header-inner { height: 68px; padding: 0 20px; }
+    nav { display: flex; }
+    .ham-btn { display: none; }
+    .mobile-nav { display: none !important; }
+    .hero { padding: 60px 20px; }
+    .hero-inner { grid-template-columns: 1fr 420px; gap: 60px; }
+    .hero h1 { font-size: 38px; }
+    .hero p { font-size: 16px; }
+    .hero-btns { flex-direction: row; gap: 14px; }
+    .btn-primary, .btn-outline { padding: 14px 28px; font-size: 15px; flex: unset; }
+    .badge { padding: 8px 16px; font-size: 13px; }
+    .stat-card { padding: 20px; }
+    .stat-card .num { font-size: 28px; }
+    .stat-card .label { font-size: 12px; }
+    section { padding: 64px 20px; }
+    .products { padding-top: 20px; }
+    .news { padding-top: 20px; }
+    .calculator { padding-top: 20px; }
+    .process { padding-top: 20px; }
+    .register { padding-top: 20px; }
+    .section-title h2 { font-size: 28px; }
+    .section-title p { font-size: 15px; }
+    .section-title { margin-bottom: 28px; }
+    .title-line { display: none !important; }
+    .products-grid { grid-template-columns: repeat(3,1fr); }
+    .product-card h3 { font-size: 15px; }
+    .product-features li { font-size: 13px; }
+    .loan-info-item .lbl { font-size: 11px; }
+    .loan-info-item .val { font-size: 18px; }
+    .loan-info-item .unit { font-size: 12px; }
+    .btn-detail { display: block; width: 100%; padding: 10px; line-height: normal; height: auto; }
+    .card-footer { display: block; }
+    .steps { grid-template-columns: repeat(4,1fr); }
+    .steps::before { display: block; }
+    .step h3 { font-size: 15px; }
+    .step p { font-size: 13px; }
+    .news-group h3 { font-size: 16px; }
+    .news-item-text span { display: none; }
+    .news-groups { grid-template-columns: repeat(2,1fr); }
+    .calc-wrapper { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .calc-info p { font-size: 18px; line-height: 1.8; }
+    .luu-y-list li { font-size: 18px !important; }
+    .calc-box { padding: 28px; border: 1.5px solid var(--border); box-shadow: var(--shadow); }
+    .form-group label { font-size: 13px; }
+    .calc-result { padding: 24px; margin-left: 0; margin-right: 0; }
+    .schedule-table { margin-left: 0; margin-right: 0; }
+    .schedule-table-wrap { border-radius: 8px; }
+    .calc-result h4 { font-size: 16px; text-align: center; color: var(--gold); font-weight: 800; }
+    .result-item .r-lbl { font-size: 11px; }
+    .result-item .r-val { font-size: 18px; }
+    .result-total .t-lbl { font-size: 12px; }
+    .result-total .t-val { font-size: 26px; }
+    .schedule-btn { font-size: 14px; }
+    .register-wrapper { grid-template-columns: 1fr 480px; gap: 60px; }
+    .form-row { grid-template-columns: 1fr 1fr; }
+    select, input[type=text], input[type=tel], input[type=number] { font-size: 14px; }
+    .submit-btn { font-size: 16px; padding: 13px 20px; }
+    .form-note { font-size: 12px; }
+    .register-left > p { text-align: left; }
+    .register-form .form-sub { text-align: center; }
+    .float-group label { font-size: 14px; }
+    .float-group.is-active label { font-size: 11px; }
+    footer { padding: 1px 20px; }
+    .footer-grid { padding-bottom: 1px; }
+    .footer-contact { flex-direction: row; gap: 24px; justify-content: center; line-height: normal; }
+    .footer-contact p { font-size: 13px; }
+    .footer-bottom { flex-direction: row; padding: 2px 0; font-size: 12px; justify-content: center; }
+    .footer-bottom span:last-child { display: none; }
+    .floating-cta { bottom: 24px; left: 24px; }
+    .fab { width: 43px; height: 43px; font-size: 18px; }
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+  /* ═══════════════ FLOATING LABELS ═══════════════ */
+  .float-group {
+    position: relative;
+    margin-bottom: 11.5px;
+  }
+  .float-group label {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--text-light);
+    pointer-events: none;
+    background: transparent;
+    padding: 0 4px;
+    line-height: 1;
+    z-index: 2;
+    white-space: nowrap;
+  }
+  .float-group.is-active label {
+    top: 0;
+    font-size: 12.5px;
+    color: var(--primary);
+    font-weight: 700;
+    background: var(--white);
+  }
+  .float-group input[type=text],
+  .float-group input[type=tel] {
+    padding-top: 19px;
+    padding-bottom: 11.5px;
+    height: 53px;
+  }
+  .float-group select { cursor: pointer; }
+  /* select arrow */
+  .float-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+  .register-form .form-sub { margin-bottom: 16px; }
+  .form-row { gap: 12px; }
+
+</style>
+</head>
+<body>
+
+
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://i.postimg.cc/sDgLhk3d/ico.png" alt="Logo">
+      <div class="logo-text">
+        <div class="name">HỖ TRỢ VAY TÍN CHẤP</div>
+        <div class="tagline">Lãi suất thấp · Duyệt nhanh · Uy tín</div>
+      </div>
+    </a>
+    <button class="ham-btn" id="hamBtn" aria-label="Menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <a href="#" class="active">Trang chủ</a>
+      <a href="#products" onclick="navGoProduct('tinchap',event)">Vay tín chấp</a>
+      <a href="#products" onclick="navGoProduct('thechap',event)">Vay thế chấp</a>
+      <a href="#products" onclick="navGoProduct('thetin',event)">Thẻ tín dụng</a>
+      <a href="#calculator">Tính lãi vay</a>
+      <a href="#register" class="header-cta">Đăng ký vay</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" class="active" onclick="closeNav()">🏠 Trang chủ</a>
+  <a href="#products" onclick="navGoProduct('tinchap',event);closeNav()">💼 Vay tín chấp</a>
+  <a href="#products" onclick="navGoProduct('thechap',event);closeNav()">🏦 Vay thế chấp</a>
+  <a href="#products" onclick="navGoProduct('thetin',event);closeNav()">💳 Thẻ tín dụng</a>
+  <a href="#calculator" onclick="closeNav()">🧮 Tính lãi vay</a>
+  <a href="#register" onclick="closeNav()">📋 Đăng ký tư vấn</a>
+  <a href="#register" class="m-cta" onclick="closeNav()">📋 Đăng ký vay ngay</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <h1>Tư vấn vay Tín Chấp <span>Lãi Suất Thấp</span><br>Duyệt Hồ Sơ Nhanh</h1>
+      <p>Hỗ trợ vay vốn từ 30 triệu đến 1 tỷ đồng. Lãi suất APR tối thiểu chỉ từ <strong style="color:var(--gold)">12%/năm (tức là 1%/tháng)</strong>. Thời hạn vay tối thiểu từ 12 tháng đến tối đa 60 tháng. Thủ tục đơn giản, giải ngân trong ngày.</p>
+      <div class="hero-badges">
+        <div class="badge"><span class="dot"></span> Duyệt trong 24h</div>
+        <div class="badge"><span class="dot"></span> Không cần thế chấp</div>
+		<div class="hero-btns">
+        <a href="#register" class="btn-primary">📋 Đăng Ký Tư Vấn</a>
+      </div>
+       
+      </div>
+    </div>
+    <div class="fade-up delay-2">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num">1<span style="font-size:16px"> Tỷ đồng</span></div>
+          <div class="label">Hạn mức tối đa</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">12<span style="font-size:16px">%</span></div>
+          <div class="label">Lãi suất/năm</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">24h<span style="font-size:16px"></span></div>
+          <div class="label">Thời gian duyệt</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">12-60</div>
+          <div class="label">Thời hạn vay</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">0đ</div>
+          <div class="label">Phí trước hạn</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">10K+</div>
+          <div class="label">Khách hàng</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>Sản Phẩm <span>Cho Vay</span></h2>
+      <p>Đa dạng sản phẩm vay phù hợp với nhu cầu của bạn</p>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('tinchap',this)">Vay Tín Chấp</button>
+      <button class="tab-btn" onclick="showTab('thechap',this)">Vay Thế Chấp</button>
+      <button class="tab-btn" onclick="showTab('thetin',this)">Thẻ Tín Dụng</button>
+    </div>
+
+    <!-- Tab: Tín chấp -->
+    <div class="tab-content active" id="tab-tinchap">
+      <div class="products-grid">
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY THEO TIỀN LƯƠNG]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/BQbSNwJC/vay-tin-chap-theo-luong.jpg" alt="Vay theo tiền lương" id="img-luong"></div>
+          <div class="card-body">
+            <h3>💼 VAY THEO TIỀN LƯƠNG</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">500 <span class="unit">triệu</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">12% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Vay từ 30 triệu đến 500 triệu</li>
+              <li>Thời hạn vay từ 12 – 60 tháng</li>
+              <li>Đang đi làm và nhận lương</li>
+              <li>Có khả năng trả nợ tiền vay</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [HỘ KINH DOANH]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/90vndMmF/kd.jpg" alt="Hộ kinh doanh" id="img-kd"></div>
+          <div class="card-body">
+            <h3>🏪 HỘ KINH DOANH</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">500 <span class="unit">triệu</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">12% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Vay từ 30 triệu đến 500 triệu</li>
+              <li>Thời hạn vay từ 12 – 60 tháng</li>
+              <li>Cửa hàng đang kinh doanh</li>
+              <li>Hỗ trợ khách chưa có GPKD</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [LAO ĐỘNG TỰ DO]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/LX5CGfhn/ld-tudo.jpg" alt="Lao động tự do" id="img-hoadon"></div>
+          <div class="card-body">
+            <h3>🔧 LAO ĐỘNG TỰ DO</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">200 <span class="unit">triệu</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">14% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Vay từ 30 triệu đến 200 triệu</li>
+              <li>Thời hạn vay từ 12 – 60 tháng</li>
+              <li>Bao thẩm định người thân</li>
+              <li>Có tiền luôn trong ngày</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY GIÁO DỤC, Y TẾ]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/rF1B114c/giaovien.png" alt="Vay giáo dục y tế" id="img-giaovien"></div>
+          <div class="card-body">
+            <h3>🏥 VAY GIÁO DỤC, Y TẾ</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">500 <span class="unit">triệu</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">12% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Vay từ 30 triệu đến 500 triệu</li>
+              <li>Thời hạn vay từ 12 – 60 tháng</li>
+              <li>Hỗ trợ mức vay 20 lần lương</li>
+              <li>Chưa có HĐLĐ vẫn hỗ trợ</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY BH NHÂN THỌ]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/sxFLSxDX/baohiem.png" alt="Vay BH nhân thọ" id="img-baohiem"></div>
+          <div class="card-body">
+            <h3>🛡️ VAY BH NHÂN THỌ</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">500 <span class="unit">triệu</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">12% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Vay từ 30 triệu đến 500 triệu</li>
+              <li>Thời hạn vay từ 12 – 60 tháng</li>
+              <li>Có Hợp đồng BHNT > 1 năm</li>
+              <li>Phí đóng mỗi năm > 5 triệu</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY THEO SIM]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/SNh5xnvd/dnghiep.jpg" alt="Vay tín chấp doanh nghiệp" id="img-sim"></div>
+          <div class="card-body">
+            <h3>🏢 VAY TÍN CHẤP DOANH NGHIỆP</h3>
+            <div class="loan-info">
+              <div class="loan-info-item">
+                <div class="lbl">Hạn mức</div>
+                <div class="val">1 <span class="unit">Tỷ</span></div>
+              </div>
+              <div class="loan-info-item">
+                <div class="lbl">Lãi suất</div>
+                <div class="val">12% <span class="unit">/năm</span></div>
+              </div>
+            </div>
+            <ul class="product-features">
+              <li>Thành lập hơn 1 năm</li>
+              <li>Có sao kê dòng tiền</li>
+              <li>Vay theo món, trả góp</li>
+              <li>Hỗ trợ cấp thẻ tín dụng</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tab: Thế chấp -->
+    <div class="tab-content" id="tab-thechap">
+      <div class="products-grid">
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY CHUYỂN ĐỔI NGÂN HÀNG]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/C51RGhPp/chuyen-bank.jpg" alt="Vay chuyển đổi" id="img-camdo"></div>
+          <div class="card-body">
+            <h3>🏦 VAY CHUYỂN ĐỔI NGÂN HÀNG</h3>
+            <div class="loan-info">
+              <div class="loan-info-item"><div class="lbl">Hạn mức</div><div class="val">5 <span class="unit">tỷ</span></div></div>
+              <div class="loan-info-item"><div class="lbl">Lãi suất</div><div class="val">6.5% <span class="unit">/năm</span></div></div>
+            </div>
+            <ul class="product-features">
+              <li>Chuyển khoản vay sang NH có lãi suất thấp hơn</li>
+              <li>Giảm gánh nặng lãi suất hiện tại</li>
+              <li>Thủ tục đơn giản, nhanh gọn</li>
+              <li>Hỗ trợ toàn quốc</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY XÂY, SỬA NHÀ]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/KvjTLNw8/Vay-xay-sua-nha.jpg" alt="Vay xây sửa nhà" id="img-xaynha"></div>
+          <div class="card-body">
+            <h3>🏠 VAY XÂY, SỬA NHÀ</h3>
+            <div class="loan-info">
+              <div class="loan-info-item"><div class="lbl">Hạn mức</div><div class="val">5 <span class="unit">tỷ</span></div></div>
+              <div class="loan-info-item"><div class="lbl">Lãi suất</div><div class="val">6.5% <span class="unit">/năm</span></div></div>
+            </div>
+            <ul class="product-features">
+              <li>Vay xây mới hoặc cải tạo nhà</li>
+              <li>Giải ngân theo tiến độ xây dựng</li>
+              <li>Thời hạn vay lên đến 25 năm</li>
+              <li>Lãi suất ưu đãi 2 năm đầu</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY MUA XE Ô TÔ]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/SKCCRx59/xe-oto.png" alt="Vay mua xe ô tô" id="img-xeoto"></div>
+          <div class="card-body">
+            <h3>🚗 VAY MUA XE Ô TÔ</h3>
+            <div class="loan-info">
+              <div class="loan-info-item"><div class="lbl">Hạn mức</div><div class="val">2 <span class="unit">tỷ</span></div></div>
+              <div class="loan-info-item"><div class="lbl">Lãi suất</div><div class="val">7.5% <span class="unit">/năm</span></div></div>
+            </div>
+            <ul class="product-features">
+              <li>Tài trợ đến 80% giá trị xe</li>
+              <li>Thời hạn vay lên đến 84 tháng</li>
+              <li>Xe mới và xe cũ đều được hỗ trợ</li>
+              <li>Bảo hiểm xe gói ưu đãi</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [VAY MUA NHÀ ĐẤT]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/FHJJCK9m/vay-mua-nha.png" alt="Vay mua nhà đất" id="img-nhadat"></div>
+          <div class="card-body">
+            <h3>🏡 VAY MUA NHÀ ĐẤT</h3>
+            <div class="loan-info">
+              <div class="loan-info-item"><div class="lbl">Hạn mức</div><div class="val">10 <span class="unit">tỷ</span></div></div>
+              <div class="loan-info-item"><div class="lbl">Lãi suất</div><div class="val">6.5% <span class="unit">/năm</span></div></div>
+            </div>
+            <ul class="product-features">
+              <li>Hỗ trợ vay đến 70% giá trị BDS</li>
+              <li>Thời hạn vay đến 25 năm</li>
+              <li>Nhà ở, đất nền đều được hỗ trợ</li>
+              <li>Định giá tài sản miễn phí</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Thẻ tín dụng -->
+    <div class="tab-content" id="tab-thetin">
+      <div class="products-grid">
+        <div class="product-card">
+          <!-- ✏️ ĐỔI ẢNH [THẺ TÍN DỤNG]: thay URL trong src="..." bên dưới -->
+          <div class="card-img"><img src="https://i.postimg.cc/4dv6LxQT/the-tin-dung.jpg" alt="Thẻ tín dụng" id="img-thetindung"></div>
+          <div class="card-body">
+            <h3>💳 THẺ TÍN DỤNG HẠN MỨC CAO</h3>
+            <div class="loan-info">
+              <div class="loan-info-item"><div class="lbl">Hạn mức</div><div class="val">500 <span class="unit">triệu</span></div></div>
+              <div class="loan-info-item"><div class="lbl">Miễn lãi</div><div class="val">45 <span class="unit">ngày</span></div></div>
+            </div>
+            <ul class="product-features">
+              <li>Miễn lãi đến 45 ngày</li>
+              <li>Hoàn tiền lên đến 5%</li>
+              <li>Duyệt nhanh, không cần tài sản</li>
+              <li>Rút tiền mặt linh hoạt</li>
+            </ul>
+          </div>
+          <div class="card-footer"><a href="#register" class="btn-detail">Đăng ký vay</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-title">
+      <h2>Quy Trình <span style="color:var(--gold)">Duyệt Hồ Sơ</span></h2>
+      <p>Chỉ 4 bước đơn giản, nhận tiền trong ngày</p>
+      <div class="title-line"></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">
+          📋
+          <span class="step-num">1</span>
+        </div>
+        <h3>Đăng Ký Thông Tin</h3>
+        <p>Điền thông tin vào form đăng ký hoặc gọi trực tiếp số điện thoại hỗ trợ</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          🔍
+          <span class="step-num">2</span>
+        </div>
+        <h3>Thẩm Định Hồ Sơ</h3>
+        <p>Chuyên viên sẽ liên hệ và hướng dẫn chuẩn bị hồ sơ</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          ✅
+          <span class="step-num">3</span>
+        </div>
+        <h3>Phê Duyệt Hồ Sơ</h3>
+        <p>Hồ sơ được xét duyệt và thông báo kết quả trong ngày</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          💰
+          <span class="step-num">4</span>
+        </div>
+        <h3>Giải Ngân Vay Vốn</h3>
+        <p>Tiền được chuyển thẳng vào tài khoản ngân hàng của bạn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+  <div class="container">
+    <div class="section-title">
+      <h2>Tin Tức <span>Sản Phẩm</span></h2>
+      <p>Cập nhật thông tin mới nhất về các sản phẩm vay vốn</p>
+      <div class="title-line"></div>
+    </div>
+    <div class="news-groups">
+      <div class="news-group">
+        <h3>Vay Thế Chấp <a href="#products" onclick="goToProduct('thechap');return false;" style="font-size:12px;font-weight:600;color:var(--primary);margin-left:auto;">Xem thêm →</a></h3>
+        <div class="news-list">
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay chuyển đổi NH]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/C51RGhPp/chuyen-bank.jpg" alt="" id="news-camdo"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('thechap');return false;">Vay chuyển đổi Ngân hàng – Tiết kiệm lãi suất tối đa</a></h4>
+              <span>📅 12/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay xây, sửa nhà]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/KvjTLNw8/Vay-xay-sua-nha.jpg" alt="" id="news-xaynha"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('thechap');return false;">Vay xây, sửa nhà – Lãi suất ưu đãi từ 6.5%/năm</a></h4>
+              <span>📅 10/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay mua xe ô tô]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/SKCCRx59/xe-oto.png" alt="" id="news-xeoto"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('thechap');return false;">Vay mua xe ô tô – Tài trợ đến 80% giá trị xe</a></h4>
+              <span>📅 08/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay mua nhà đất]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/FHJJCK9m/vay-mua-nha.png" alt="" id="news-nhadat"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('thechap');return false;">Vay mua nhà đất – Hạn mức lên đến 10 tỷ đồng</a></h4>
+              <span>📅 05/01/2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="news-group">
+        <h3>Vay Tín Chấp <a href="#products" onclick="goToProduct('tinchap');return false;" style="font-size:12px;font-weight:600;color:var(--primary);margin-left:auto;">Xem thêm →</a></h3>
+        <div class="news-list">
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay theo SIM]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/SNh5xnvd/dnghiep.jpg" alt="" id="img-news-sim"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('tinchap');return false;">Vay theo tín chấp doanh nghiệp – Nhận tiền nhanh</a></h4>
+              <span>📅 15/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Lao động tự do]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/LX5CGfhn/ld-tudo.jpg" alt="" id="img-news-hoadon"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('tinchap');return false;">Vay theo Lao động tự do – Không cần hợp đồng lao động</a></h4>
+              <span>📅 13/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay giáo dục]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/rF1B114c/giaovien.png" alt="" id="img-news-giaodt"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('tinchap');return false;">Cho vay ngành giáo dục, y tế – Ưu đãi lên đến 20 lần lương</a></h4>
+              <span>📅 11/01/2025</span>
+            </div>
+          </div>
+          <div class="news-item">
+            <!-- ✏️ ĐỔI ẢNH TIN TỨC [Vay BH nhân thọ]: thay URL trong src="..." bên dưới -->
+            <div style="position:relative;flex-shrink:0;"><img src="https://i.postimg.cc/sxFLSxDX/baohiem.png" alt="" id="img-news-baohiem"></div><div class="news-item-text">
+              <h4><a href="#products" onclick="goToProduct('tinchap');return false;">Vay theo bảo hiểm nhân thọ – Giải ngân nhanh</a></h4>
+              <span>📅 09/01/2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calculator" id="calculator">
+  <div class="container">
+    <div class="section-title">
+      <h2>Ước Tính <span>Số Tiền Trả Góp</span></h2>
+      <p>Bảng tính tham khảo, không phải cam kết của bên cho vay</p>
+      <div class="title-line"></div>
+    </div>
+    <div class="calc-wrapper">
+      <div class="calc-left">
+        <div class="calc-info">
+          <p>
+            <strong>Ví dụ mô phỏng khoản vay:</strong><br><br>
+            Khách hàng vay <strong>50 triệu đồng</strong>, thời hạn <strong>24 tháng</strong>, lãi suất <strong>12%/năm</strong> (1%/tháng):<br><br>
+            • Tiền lãi: 50 triệu × 1% = <strong>500.000 đồng</strong><br>
+            • Nợ gốc: 50 triệu ÷ 24 = <strong>2.083.333 đồng</strong><br>
+            • Tổng trả mỗi tháng: <strong>2.583.333 đồng</strong>
+          </p>
+        </div>
+        <div style="background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);padding:16px 1.5px;">
+          <h4 style="font-weight:700;color:var(--dark);margin-bottom:16px;">📌 Lưu ý quan trọng</h4>
+          <ul class="luu-y-list" style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Độ tuổi từ 18 đến 60</li>
+			<li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Hạn mức vay từ 30 triệu đến 1 Tỷ đồng</li>
+            <li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Thời hạn vay từ 12 tháng đến 60 tháng</li>
+            <li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Miễn phí trả nợ trước hạn, trả nợ sớm</li>
+            <li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Lãi suất APR tối thiểu 12%/năm (1%/tháng)</li>
+            <li style="display:flex;gap:10px;font-size:13px;color:var(--text-light);align-items:flex-start;"><span style="color:var(--primary)">•</span>Có miễn, giảm phí bảo hiểm khoản vay</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="calc-box">
+          <h3 style="text-align:center;color:var(--dark);">🧮 Tính Toán Khoản Vay</h3>
+          <p class="subtitle">Chọn số tiền và thời hạn để xem kết quả</p>
+          <div class="form-group">
+            <label>Số tiền vay: <span class="range-val" id="loanVal">50 triệu</span></label>
+            <input type="range" id="loanAmount" min="30" max="500" step="10" value="50" oninput="updateCalc()">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-light);margin-top:4px;"><span>30tr</span><span>500tr</span></div>
+          </div>
+          <div class="form-group">
+            <label>Thời hạn vay: <span class="range-val" id="termVal">24 tháng</span></label>
+            <input type="range" id="loanTerm" min="6" max="60" step="6" value="24" oninput="updateCalc()">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-light);margin-top:4px;"><span>12 tháng</span><span>60 tháng</span></div>
+          </div>
+          <div class="form-group" id="rateGroup">
+            <label>Lãi suất (%/năm):</label>
+            <select id="loanRate" onchange="updateCalc()">
+              <option value="12" selected>12% / năm (1%/tháng)</option>
+            </select>
+          </div>
+          <div class="calc-result" id="calcResult">
+            <h4 style="text-align:center;color:var(--gold);font-weight:800;">📊 Kết quả ước tính</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="r-lbl">Tiền gốc/tháng</div>
+                <div class="r-val" id="r-principal">—</div>
+              </div>
+              <div class="result-item">
+                <div class="r-lbl">Tiền lãi/tháng</div>
+                <div class="r-val" id="r-interest">—</div>
+              </div>
+            </div>
+            <div class="result-total">
+              <div class="t-lbl">Tổng trả mỗi tháng</div>
+              <div class="t-val" id="r-total">—</div>
+            </div>
+            <button class="schedule-btn" onclick="toggleSchedule()">📋 Xem bảng lịch trả nợ chi tiết</button>
+          </div>
+          <div class="schedule-table" id="scheduleTable"><div class="schedule-table-wrap"><table id="scheduleBody"></table></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register" id="register">
+  <div class="container">
+    <div class="register-wrapper">
+      <div class="register-left">
+        <h2 style="text-align:center;padding-top:2px;">Đăng Ký <span>Tư Vấn Vay Vốn</span></h2>
+        
+        <ul class="feature-list">
+          <li>
+            <div class="feature-icon">⚡</div>
+            <div class="text">
+              <h4>Phản hồi trong 30 phút</h4>
+              <p>Chuyên viên sẽ gọi lại và kết bạn Zalo ngay khi nhận được yêu cầu</p>
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon">🔒</div>
+            <div class="text">
+              <h4>Bảo mật thông tin</h4>
+              <p>Thông tin cá nhân của bạn được bảo mật hoàn toàn, không chia sẻ bên thứ ba</p>
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon">🎯</div>
+            <div class="text">
+              <h4>Tư vấn phù hợp</h4>
+              <p>Chuyên viên tư vấn gói vay phù hợp nhất với tình trạng tài chính của bạn</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="register-form" id="registerForm">
+        <h3>📋 Đăng Ký Tư Vấn</h3>
+        <p class="form-sub">Vui lòng điền đầy đủ thông tin bên dưới</p>
+
+        <div class="float-group">
+          <label>Họ và Tên *</label>
+          <input type="text" id="f-name" oninput="this.value=this.value.toUpperCase()" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="float-group">
+            <label>Số Điện Thoại *</label>
+            <input type="tel" id="f-phone" maxlength="10" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+          </div>
+          <div class="float-group">
+            <label>Nhu Cầu Vay</label>
+            <select id="f-amount">
+              <option value="" disabled selected hidden></option>
+              <option>30 triệu</option>
+              <option>40 triệu</option>
+              <option>50 triệu</option>
+              <option>60 triệu</option>
+              <option>70 triệu</option>
+              <option>80 triệu</option>
+              <option>90 triệu</option>
+              <option>100 triệu</option>
+              <option>120 triệu</option>
+              <option>150 triệu</option>
+              <option>200 triệu</option>
+              <option>250 triệu</option>
+              <option>300 triệu</option>
+              <option>400 triệu</option>
+              <option>500 triệu</option>
+            </select>
+          </div>
+        </div>
+        <div class="float-group">
+          <label>Tỉnh / Thành Phố</label>
+          <select id="f-city">
+            <option value="" disabled selected hidden></option>
+            <option>Tp.HCM</option>
+            <option>Bình Dương</option>
+            <option>Đồng Nai</option>
+            <option>Long An</option>
+            <option>Vũng Tàu</option>
+            <option>Tây Ninh</option>
+            <option>Bình Phước</option>
+            <option>Đắk Nông</option>
+            <option>Bình Thuận</option>
+            <option>Ninh Thuận</option>
+            <option>Khánh Hòa</option>
+            <option>Lâm Đồng</option>
+            <option>Đắk Lắk</option>
+            <option>Vĩnh Long</option>
+            <option>Đồng Tháp</option>
+            <option>Trà Vinh</option>
+            <option>Tiền Giang</option>
+            <option>An Giang</option>
+            <option>Hậu Giang</option>
+            <option>Kiên Giang</option>
+            <option>Cần Thơ</option>
+            <option>Sóc Trăng</option>
+            <option>Bạc Liêu</option>
+            <option>Cà Mau</option>
+            <option>Nơi khác</option>
+          </select>
+        </div>
+        
+        <button class="submit-btn" onclick="submitForm()">🚀 GỬI ĐĂNG KÝ TƯ VẤN</button>
+        
+        <div class="success-msg" id="successMsg">
+          <div class="icon">🎉</div>
+          <h4>Đăng Ký Thành Công!</h4>
+          <p>Chúng tôi sẽ gọi lại và/hoặc kết bạn Zalo với Quý khách trong <strong>30 phút</strong>. Cảm ơn!</p>
+          <div style="margin-top:14px;background:white;border-radius:8px;padding:14px;font-size:13px;text-align:left;">
+            <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #d1fae5;">
+              <span style="color:#666">Thời gian xử lý:</span><span style="font-weight:600">Trong vòng 30 phút</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:6px 0;">
+              <span style="color:#666">Trạng thái:</span><span style="color:#16a34a;font-weight:700">✅ Đang xử lý</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-contact">
+        <p>3B Tôn Đức Thắng, P. Bến Nghé, TP.HCM - 0782467674</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+
+  // Double back press (mobile: rung+giữ → thoát | PC: trang chủ → thoát)
+  (function() {
+    history.pushState(null, '', location.href);
+    var backCount = 0;
+    var backTimer = null;
+    var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+    window.addEventListener('popstate', function() {
+      history.pushState(null, '', location.href);
+      if (backCount === 0) {
+        backCount = 1;
+        if (isMobile) {
+          if (navigator.vibrate) navigator.vibrate([80, 50, 80]);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        clearTimeout(backTimer);
+        backTimer = setTimeout(function() { backCount = 0; }, 2000);
+      } else {
+        history.go(-2);
+      }
+    });
+  })();
+
+  // Mobile navigation
+  function toggleNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamBtn');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('hamBtn').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Navigate to product tab from news links
+  // navGoProduct: dùng cho menu nav (có scroll về section)
+  function navGoProduct(tabId, e) {
+    if (e) e.preventDefault();
+    // Kích hoạt tab đúng
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('active');
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + tabId + "'")) {
+        b.classList.add('active');
+      }
+    });
+    const tabEl = document.getElementById('tab-' + tabId);
+    if (tabEl) tabEl.classList.add('active');
+    // Scroll về section products
+    const sec = document.getElementById('products');
+    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function goToProduct(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('active');
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + tabId + "'")) {
+        b.classList.add('active');
+      }
+    });
+    document.getElementById('tab-' + tabId).classList.add('active');
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Tab switching
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Loan calculator
+  function fmt(n) {
+    return n.toLocaleString('vi-VN') + 'đ';
+  }
+
+  function updateRangeFill(el) {
+    const min = parseFloat(el.min) || 0;
+    const max = parseFloat(el.max) || 100;
+    const val = parseFloat(el.value);
+    const pct = ((val - min) / (max - min) * 100).toFixed(1) + '%';
+    el.style.setProperty('--val', pct);
+    el.style.background = `linear-gradient(to right, var(--primary) ${pct}, #d1d5db ${pct})`;
+  }
+
+  function updateCalc() {
+    const amount = parseInt(document.getElementById('loanAmount').value);
+    const term = parseInt(document.getElementById('loanTerm').value);
+    const rate = parseFloat(document.getElementById('loanRate').value);
+    updateRangeFill(document.getElementById('loanAmount'));
+    updateRangeFill(document.getElementById('loanTerm'));
+    document.getElementById('loanVal').textContent = amount + ' triệu';
+    document.getElementById('termVal').textContent = term + ' tháng';
+    const principal = (amount * 1000000) / term;
+    const interest = (amount * 1000000) * (rate / 100 / 12);
+    const total = principal + interest;
+    document.getElementById('r-principal').textContent = fmt(Math.round(principal));
+    document.getElementById('r-interest').textContent = fmt(Math.round(interest));
+    document.getElementById('r-total').textContent = fmt(Math.round(total));
+  }
+
+  function toggleSchedule() {
+    const tbl = document.getElementById('scheduleTable');
+    tbl.classList.toggle('show');
+    if (tbl.classList.contains('show')) buildSchedule();
+  }
+
+  function buildSchedule() {
+    const amount = parseInt(document.getElementById('loanAmount').value) * 1000000;
+    const term = parseInt(document.getElementById('loanTerm').value);
+    const rate = parseFloat(document.getElementById('loanRate').value) / 100 / 12;
+    let remaining = amount;
+    let rows = '<colgroup><col class="c-thang"><col class="c-goc"><col class="c-lai"><col class="c-tong"><col class="c-dunoc"></colgroup><tr><th>Tháng</th><th>Nợ gốc</th><th>Tiền lãi</th><th>Tổng trả</th><th>Dư nợ còn lại</th></tr>';
+    const principal = amount / term;
+    for (let i = 1; i <= term; i++) {
+      const interest = remaining * rate;
+      const total = principal + interest;
+      remaining -= principal;
+      rows += `<tr><td>${i}</td><td>${fmt(Math.round(principal))}</td><td>${fmt(Math.round(interest))}</td><td>${fmt(Math.round(total))}</td><td>${fmt(Math.round(Math.max(0,remaining)))}</td></tr>`;
+    }
+    document.getElementById('scheduleBody').innerHTML = rows;
+  }
+
+  // ── GAS Web App URL — dán URL sau khi deploy Apps Script vào đây ───────
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzr8xIYbngTu6tD5T4IP7rQRVOfdBULz2RaE-j-kpyljE-T6Icdj5Iqn-_XsDipEQWy/exec';
+
+  // Validate số điện thoại di động Việt Nam hiện hành (10 số, bắt đầu 0)
+  function isValidVNPhone(phone) {
+    return /^0(3[2-9]|5[25689]|7[06789]|8[1-689]|9[0-46-9])\d{7}$/.test(phone);
+  }
+
+  // Form submit
+  async function submitForm() {
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const amount  = document.getElementById('f-amount').value;
+    const city    = document.getElementById('f-city').value;
+
+    if (!name) {
+      alert('Vui lòng điền họ và tên!');
+      document.getElementById('f-name').focus();
+      return;
+    }
+    if (!phone) {
+      alert('Vui lòng điền số điện thoại!');
+      document.getElementById('f-phone').focus();
+      return;
+    }
+    if (phone.length !== 10 || !phone.startsWith('0')) {
+      alert('Số điện thoại phải đủ 10 số và bắt đầu bằng số 0!');
+      document.getElementById('f-phone').focus();
+      return;
+    }
+    if (!isValidVNPhone(phone)) {
+      alert('Số điện thoại không đúng đầu số di động Việt Nam!\nVui lòng kiểm tra lại (VD: 09x, 03x, 07x, 08x...)');
+      document.getElementById('f-phone').focus();
+      return;
+    }
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = '⏳ Đang gửi...';
+    btn.disabled = true;
+
+    // Gửi dữ liệu thẳng lên Google Sheet qua Apps Script (đã bỏ bước kiểm tra trùng SĐT để tăng tốc độ)
+    const payload = { name, phone, amount, city,
+      time: new Date().toLocaleString('vi-VN') };
+    try {
+      await fetch(GAS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch(e) { /* no-cors always throws, ignore */ }
+
+    document.getElementById('successMsg').style.display = 'block';
+    btn.style.display = 'none';
+    document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+  }
+
+
+  // Init
+  updateCalc();
+
+  // Floating labels
+  function initFloatLabels() {
+    document.querySelectorAll('.float-group input, .float-group select').forEach(function(el) {
+      var group = el.closest('.float-group');
+      function check() {
+        if (document.activeElement === el || el.value !== '') {
+          group.classList.add('is-active');
+        } else {
+          group.classList.remove('is-active');
+        }
+      }
+      el.addEventListener('focus', check);
+      el.addEventListener('blur', check);
+      el.addEventListener('change', check);
+      check();
+    });
+  }
+  initFloatLabels();
+
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
