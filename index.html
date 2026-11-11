@@ -264,11 +264,12 @@
   }
   .btn-detail {
     display: block; width: 100%; text-align: center;
-    background: var(--primary); color: var(--white);
+    background: var(--gold); color: var(--dark);
+    border: 1.5px solid var(--gold);
     padding: 11px 16px; border-radius: 50px; font-weight: 700; font-size: 15px;
-    transition: all 0.2s; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+    transition: all 0.2s; box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);
   }
-  .btn-detail:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .btn-detail:hover { background: #f59e0b; border-color: #f59e0b; transform: translateY(-1px); }
 
   /* ═══════════════ 3. CALCULATOR ═══════════════ */
   .calculator { background: var(--bg); padding-top: 24px; padding-bottom: 28px; }
@@ -478,13 +479,13 @@
   .form-row { display: grid; grid-template-columns: 1fr; gap: 0; }
   .submit-btn {
     width: 100%; padding: 14px 24px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--white); border: none; border-radius: 50px;
+    background: var(--gold);
+    color: var(--dark); border: 1.5px solid var(--gold); border-radius: 50px;
     font-size: 17px; font-weight: 800; cursor: pointer; font-family: inherit;
     transition: all 0.2s; margin-top: 6px;
-    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);
   }
-  .submit-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+  .submit-btn:hover { background: #f59e0b; border-color: #f59e0b; transform: translateY(-1px); }
 
   /* Floating labels */
   .float-group { position: relative; margin-bottom: 12px; }
@@ -657,7 +658,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <h1>Tư vấn vay Tín Chấp <span>Lãi Suất Thấp</span><br>Duyệt Hồ Sơ Nhanh</h1>
+      <h1>Vay Tín Chấp <span>Lãi Suất Thấp</span><br>Duyệt Hồ Sơ Nhanh</h1>
       <p>Hỗ trợ vay vốn từ <strong>20 triệu đến 1 tỷ đồng</strong>. Lãi suất APR tối thiểu chỉ từ <strong style="color:var(--gold)">12%/năm (tức là 1%/tháng)</strong> và tối đa 18%/năm. Thời hạn vay linh hoạt từ 12 tháng đến tối đa 60 tháng. Thủ tục đơn giản, giải ngân trong ngày.</p>
       <div class="hero-badges">
         <div class="badge"><span class="dot"></span> Duyệt trong 24h</div>
@@ -977,6 +978,7 @@
             <li><span>•</span>Lãi suất APR tối đa 18%/năm (1.5%/tháng)</li>
             <li><span>•</span>Có miễn, giảm phí bảo hiểm khoản vay</li>
           </ul>
+          <a href="#register" class="btn-detail" style="margin-top: 16px;">Đăng ký gói vay</a>
         </div>
       </div>
 
@@ -1504,7 +1506,23 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      if (!target) return;
+      e.preventDefault();
+      // Trên điện thoại/máy tính bảng: cuộn để cả form đăng ký nằm giữa màn hình
+      const form = document.getElementById('registerForm');
+      if (a.getAttribute('href') === '#register' && form && window.matchMedia('(max-width: 959px)').matches) {
+        setTimeout(function () {
+          const hdr = document.querySelector('header');
+          const headerH = hdr ? hdr.offsetHeight : 56;
+          const available = window.innerHeight - headerH;
+          const formH = form.offsetHeight;
+          const formTop = form.getBoundingClientRect().top + window.pageYOffset;
+          const gap = formH < available ? (available - formH) / 2 : 8;
+          window.scrollTo({ top: Math.max(0, formTop - headerH - gap), behavior: 'smooth' });
+        }, 60);
+        return;
+      }
+      target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 </script>
